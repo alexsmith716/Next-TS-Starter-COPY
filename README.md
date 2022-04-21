@@ -5,6 +5,7 @@
 ***** this a copy/tester version of 'Next-TS-Starter'. it picks up on the last push to 'Next-TS-Starter' *****
 ***** wanted to push it to GitHub. it is close to completion -needs some additional code & TS typing *****
 ***** basically, all changes here will be merged into 'Next-TS-Starter' *****
+***** No more features/additions are being added. Finishing the code & TS here then done with Next.JS for a while *****
 
 This is my first official try with Next.js. Getting the hang of Next.js and bringing the other tech used in this project up to snuff took weeks longer than I anticipated but things are finally moving faster. The goal of this repo is to become familiar working with Next.js. I want to use Next.js as a platform to build out TypeScript, UI, API, AWS, CI/CD, Testing and basically all other Server/Client skills & technologies. Main focus right now is to get a stable project that I can improve my Testing, TS & Linting abilities. Will be quickly adding more API usage scenarios to the app.
 

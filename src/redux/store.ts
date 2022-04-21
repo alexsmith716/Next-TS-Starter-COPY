@@ -46,7 +46,7 @@ const makeStore = () => {
 	const providers = { httpClient: api };
 	const isServer = typeof window === 'undefined';
 
-	// *********** will eventually be converted to RTK ***********
+	// *********** will ASAP be converted to RTK ***********
 	if (isServer) {
 		return createStore(rootReducer, bindMiddleware([clientMiddleware(providers)]) );
 	} else {

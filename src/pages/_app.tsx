@@ -20,25 +20,21 @@ const App = ({ Component, pageProps }: AppProps) => {
 };
 
 App.getInitialProps = wrapper.getInitialAppProps((store) => async ({ Component, ctx }) => {
-	const serverRequest = typeof window === 'undefined' && !ctx.req?.url?.startsWith('/_next');
-	// const serverRequest = typeof window === "undefined" && !ctx.req?.url?.startsWith("/_next/data") && !ctx.req?.url?.startsWith("/_next/static") && !ctx.req?.url?.startsWith("/_next/webpack-hmr")
+	const isServer = typeof window === 'undefined' && !ctx.req?.url?.startsWith('/_next/data');
 
-	if (serverRequest) {
+	if (isServer) {
 		await store.dispatch(actionSetUserAgent(getUserAgent(ctx?.req?.headers['user-agent']!), isBot(ctx?.req?.headers['user-agent']!)));
 	}
 
-	//if (serverRequest) {
-	//	//console.log('######### ___APP > !!!!!!!! ***********************************: ');
-	//	await store.dispatch(loadMetaWeather())
-	//		.then((response) => {
-	//			//console.log('######### ___APP > THEN ***********************************: ', response);
-	//		})
-	//		.catch(async (error) => {
-	//			//console.log('######### ___APP > CATCH *********************************: ', error);
-	//			// handling all 400's
-	//			await store.dispatch( {type: 'METAWEATHER_FAIL', error: {error: 'Error when attempting to fetch resource.'} });
-	//		});
-	//}
+	if (isServer) {
+		await store.dispatch(loadMetaWeather())
+			.then((response) => {
+			})
+			.catch(async (error) => {
+				// handling all 400's
+				await store.dispatch( {type: 'METAWEATHER_FAIL' });
+			});
+	}
 
 	const pageProps = {
 		...(Component.getInitialProps

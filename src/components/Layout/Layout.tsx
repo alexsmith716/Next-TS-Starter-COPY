@@ -16,7 +16,7 @@ type Props = {
 	title?: string
 }
 
-export const Layout = ({ children, title = 'React TS Starter App Example' }: Props) => {
+export const Layout = ({ children, title = 'Next TS Starter App Example' }: Props) => {
 	const themeMode = useTheme();
 	const key = `${themeMode.mode}` as string;
 	const themeModeMode = AppTheme.theme[key as keyof typeof AppTheme.theme];

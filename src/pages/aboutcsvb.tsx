@@ -1,70 +1,21 @@
-import type { NextPage } from 'next';
+import type { NextPage, GetServerSideProps } from 'next';
 import Head from 'next/head';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import * as Styles from '../styles/styles-about';
+import { loadAboutCSVB } from '../redux/reducers/aboutCSVBSlice';
 import { wrapper, AppState } from '../redux/store';
 
-const fetchData = async () => {
-	return await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=3')
-		.then((res) => ({
-			posts: res.data,
-		}))
-		.catch(() => ({
-			posts: null,
-		}));
-};
-
-export const getServerSideProps = wrapper.getServerSideProps(store => async () => {
-	store.dispatch( {type: 'ABOUTCSVB_LOAD'});
-	const data = await fetchData();
-	console.log('######### AboutCSVBAboutCSVBAboutCSVB > getServerSideProps > data 000000: ', data);
-	if(data){
-		console.log('######### AboutCSVBAboutCSVBAboutCSVB > getServerSideProps > data 1111111: ', data);
-		store.dispatch( {type: 'ABOUTCSVB_SUCCESS', result: data });
-	} else {
-		console.log('######### AboutCSVBAboutCSVBAboutCSVB > getServerSideProps > data 2222222: ', data);
-		store.dispatch( {type: 'ABOUTCSVB_FAIL', error: {error: 'Error when attempting to fetch resource.'} });
-	}
-	//return {
-	//	props: data,
-	//};
+export const getServerSideProps: any = wrapper.getServerSideProps((store: any) => () => {
+	return store.dispatch(loadAboutCSVB());
 });
 
-//export const getServerSideProps = wrapper.getServerSideProps(store => ({req, res, ...etc}) => {
-//  console.log('2. Page.getServerSideProps uses the store to dispatch things');
-//  store.dispatch({type: 'TICK', payload: 'was set in other page'});
-//});
+interface AboutCSVBPageProps {};
 
-//export const getServerSideProps = async () => {
-//  const data = await fetchData();
-//  return {
-//    props: data,
-//  };
-//};
-
-interface AboutCSVBPageProps {
-	//posts: any;
-};
-
-//const AboutCSVB: NextPage<AboutCSVBPageProps> = ({posts}) => {
 const AboutCSVB: NextPage<AboutCSVBPageProps> = () => {
-	//const dispatch = useDispatch();
-
-	//const loading = useSelector((state: AppState) => state.aboutCSVBReducer.loading);
-	//const loaded = useSelector((state: AppState) => state.aboutCSVBReducer.loaded);
+	const loading = useSelector((state: AppState) => state.aboutCSVBReducer.loading);
+	const loaded = useSelector((state: AppState) => state.aboutCSVBReducer.loaded);
 	const aboutCSVBData = useSelector((state: AppState) => state.aboutCSVBReducer.aboutCSVBData);
-	console.log('######### AboutCSVB > aboutCSVBData :::: ', aboutCSVBData);
-
-	//if(posts) {
-	//	console.log('######### AboutCSVBAboutCSVBAboutCSVB > posts:::: ', posts);
-	//}
-
-	//useEffect(() => {
-	//  if (!aboutCSVBData) {
-	//    dispatch(loadAboutCSVB())
-	//  }
-	//}, [data, dispatch]);
 
 	return (
 		<>

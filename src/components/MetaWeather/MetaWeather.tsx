@@ -9,24 +9,22 @@ import * as Styles from './styles';
 const MetaWeather = () => {
 	const dispatch = useDispatch();
 
+	const formatter = new Intl.NumberFormat('en-US', {
+		minimumFractionDigits: 2,
+		maximumFractionDigits: 2,
+	});
+
+	let metaWeatherDataST;
+	let metaWeatherDataTP;
+
 	const loading = useSelector((state: AppState) => state.metaWeatherReducer.loading);
 	const loaded = useSelector((state: AppState) => state.metaWeatherReducer.loaded);
 	const metaWeatherData = useSelector((state: AppState) => state.metaWeatherReducer.metaWeatherData);
-	//const metaWeatherDataST = useSelector((state: AppState) => state.metaWeatherReducer.metaWeatherData.consolidated_weather[0].weather_state_name);
-	//const metaWeatherDataTP = useSelector((state: AppState) => state.metaWeatherReducer.metaWeatherData.consolidated_weather[0].the_temp);
 
-	const formatter = new Intl.NumberFormat('en-US', {
-		minimumFractionDigits: 3,
-		maximumFractionDigits: 3,
-	});
-	// formatter.format(10.619900000000001)
-
-	//console.log('######### MetaWeatherMetaWeatherMetaWeather > loading: ', loading);
-	//console.log('######### MetaWeatherMetaWeatherMetaWeather > loaded: ', loaded);
-	//console.log('######### MetaWeatherMetaWeatherMetaWeather > metaWeatherData: ', metaWeatherData);
-	//console.log('######### MetaWeatherMetaWeatherMetaWeather > metaWeatherDataST: ', metaWeatherDataST);
-	//console.log('######### MetaWeatherMetaWeatherMetaWeather > metaWeatherDataTP: ', metaWeatherDataTP);
-	// parseFloat(10.669000000000001).toFixed(3)
+	if(metaWeatherData && !metaWeatherData.error) {
+		metaWeatherDataST = metaWeatherData.consolidated_weather[0].weather_state_name;
+		metaWeatherDataTP = formatter.format(metaWeatherData.consolidated_weather[0].the_temp);
+	}
 
 	return (
 		<div className="container">
@@ -43,19 +41,15 @@ const MetaWeather = () => {
 							</div>
 
 							<div>
-								{process.env.ENV_VARIABLE_fetchBridgeRatings_identityPoolId}
+								{!loaded && metaWeatherData && metaWeatherData.error && <Styles.DataMessage>{metaWeatherData.error}</Styles.DataMessage>}
 							</div>
 
 							<div>
-								{!loaded && metaWeatherData && <Styles.DataMessage>{metaWeatherData.error}</Styles.DataMessage>}
+								{loaded && metaWeatherData && !metaWeatherData.error && <Styles.DataMessage>{metaWeatherData.title}&nbsp;{metaWeatherData.location_type}</Styles.DataMessage>}
 							</div>
 
 							<div>
-								{loaded && metaWeatherData && <Styles.DataMessage>{metaWeatherData.title}&nbsp;{metaWeatherData.location_type}</Styles.DataMessage>}
-							</div>
-
-							<div>
-								{loaded && metaWeatherData && <>metaWeatherDataST&nbsp;<Styles.DataMessage>and</Styles.DataMessage>&nbsp;metaWeatherDataTP&nbsp;celsius</>}
+								{loaded && metaWeatherData && !metaWeatherData.error && <>{metaWeatherDataST}&nbsp;<Styles.DataMessage>and</Styles.DataMessage>&nbsp;{metaWeatherDataTP}&nbsp;celsius</>}
 							</div>
 
 							<div className="mt-2">

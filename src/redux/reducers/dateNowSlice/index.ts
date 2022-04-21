@@ -47,7 +47,6 @@ export function loadDateNow(requestFound: boolean, delay: number): AnyAction {
 		type: [DATE_NOW_LOAD, DATE_NOW_LOAD_SUCCESS, DATE_NOW_LOAD_FAIL],
 		httpClientPromise: () => dateNow({requestFound: requestFound, delay: delay})
 			.then((response) => {
-				// ok, i promise this is the end of the whole "loadDateNow" thing!
 				if (response.status >= 300) {
 					return Promise.reject(response);
 				}
