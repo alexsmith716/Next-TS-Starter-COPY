@@ -15,12 +15,9 @@ export default function apiClient(): AxiosInstance {
 	// within the range of 2xx | outside the range of 2xx
 	instance.interceptors.response.use(
 		(response) => {
-			//console.log('APAPAPAPPAAPPAPAPAPPPAPAPAP apiClient RESPONSE: ', response.data);
 			return response.data;
 		},
 		(error) => {
-			//console.log('APAPAPAPPAAPPAPAPAPPPAPAPAP apiClient ERROR: ', error);
-			//return Promise.reject(error.response.data);
 			return Promise.reject(error);
 		},
 	);

@@ -15,14 +15,11 @@ const reducer = (state = {}, action: ActionLoadPromiseType | HydrateActionType) 
 				...action.payload.aboutCSVBReducer,
 			};
 		case ABOUTCSVB_LOAD:
-			console.log('######### AboutCSVB > aboutCSVBReducer > ABOUTCSVB_LOAD > 00000000');
 			return {
 				...state,
 				loading: true,
 			};
 		case ABOUTCSVB_SUCCESS:
-			console.log('######### AboutCSVB > aboutCSVBReducer > ABOUTCSVB_SUCCESS > 11111111a: ', state);
-			console.log('######### AboutCSVB > aboutCSVBReducer > ABOUTCSVB_SUCCESS > 11111111b: ', action);
 			return {
 				...state,
 				loading: false,
@@ -30,8 +27,6 @@ const reducer = (state = {}, action: ActionLoadPromiseType | HydrateActionType) 
 				aboutCSVBData: action['result'],
 			};
 		case ABOUTCSVB_FAIL:
-			console.log('######### AboutCSVB > aboutCSVBReducer > ABOUTCSVB_FAIL > 22222222a: ', state);
-			console.log('######### AboutCSVB > aboutCSVBReducer > ABOUTCSVB_FAIL > 22222222b: ', action);
 			return {
 				...state,
 				loading: false,
@@ -48,14 +43,14 @@ const reducer = (state = {}, action: ActionLoadPromiseType | HydrateActionType) 
 export default reducer;
 
 export function loadAboutCSVB(): AnyAction {
-	return {
-		type: [ABOUTCSVB_LOAD, ABOUTCSVB_SUCCESS, ABOUTCSVB_FAIL],
-		httpClientPromise: () => fetchBridgeRatings()
-			.then((response) => {
-				return response.result;
-			})
-			.catch((error) => {
-				return Promise.reject(error.result);
-			})
-	};
+  return {
+    type: [ABOUTCSVB_LOAD, ABOUTCSVB_SUCCESS, ABOUTCSVB_FAIL],
+    httpClientPromise: ({httpClient}: {httpClient: AxiosInstance}) => httpClient.get('https://jsonplaceholder.typicode.com/posts?_limit=3')
+      .then((response) => {
+        return {props: {posts: response,}};
+      })
+      .catch((error) => {
+        return {props: {posts: null,}};
+      })
+  };
 };
