@@ -1,21 +1,22 @@
 import type { NextPage, GetServerSideProps } from 'next';
 import Head from 'next/head';
-import { useSelector } from 'react-redux';
-import axios from 'axios';
+//import { useSelector } from 'react-redux';
+import { AnyAction, Store } from 'redux';
 import * as Styles from '../styles/styles-about';
 import { loadAboutCSVB } from '../redux/reducers/aboutCSVBSlice';
+//@ts-ignore
 import { wrapper, AppState } from '../redux/store';
 
-export const getServerSideProps: any = wrapper.getServerSideProps((store: any) => () => {
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps((store: Store | AnyAction) => () => {
 	return store.dispatch(loadAboutCSVB());
 });
 
 interface AboutCSVBPageProps {};
 
 const AboutCSVB: NextPage<AboutCSVBPageProps> = () => {
-	const loading = useSelector((state: AppState) => state.aboutCSVBReducer.loading);
-	const loaded = useSelector((state: AppState) => state.aboutCSVBReducer.loaded);
-	const aboutCSVBData = useSelector((state: AppState) => state.aboutCSVBReducer.aboutCSVBData);
+	//const loading = useSelector((state: AppState) => state.aboutCSVBReducer.loading);
+	//const loaded = useSelector((state: AppState) => state.aboutCSVBReducer.loaded);
+	//const aboutCSVBData = useSelector((state: AppState) => state.aboutCSVBReducer.aboutCSVBData);
 
 	return (
 		<>

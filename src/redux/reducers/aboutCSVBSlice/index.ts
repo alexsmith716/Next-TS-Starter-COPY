@@ -49,7 +49,7 @@ export function loadAboutCSVB(): AnyAction {
       .then((response) => {
         return {props: {posts: response,}};
       })
-      .catch((error) => {
+      .catch(() => {
         return {props: {posts: null,}};
       })
   };

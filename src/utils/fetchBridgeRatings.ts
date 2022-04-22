@@ -10,7 +10,7 @@ const s3Client = new S3Client({
 	region,
 	credentials: fromCognitoIdentityPool({
 		client: new CognitoIdentityClient({ region }),
-		identityPoolId: process.env.fetchBridgeRatings_identityPoolId,
+		identityPoolId: process.env.fetchBridgeRatings_identityPoolId!,
 	}),
 });
 

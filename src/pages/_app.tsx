@@ -28,9 +28,7 @@ App.getInitialProps = wrapper.getInitialAppProps((store) => async ({ Component, 
 
 	if (isServer) {
 		await store.dispatch(loadMetaWeather())
-			.then((response) => {
-			})
-			.catch(async (error) => {
+			.catch(async () => {
 				// handling all 400's
 				await store.dispatch( {type: 'METAWEATHER_FAIL' });
 			});
