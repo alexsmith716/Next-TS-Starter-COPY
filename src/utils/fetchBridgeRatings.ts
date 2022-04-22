@@ -109,6 +109,6 @@ export async function fetchBridgeRatings() {
 
 		return Promise.resolve({ result: data });
 	} catch (error) {
-		return Promise.reject({ result: 'NetworkError when attempting to fetch resource.' });
+		return Promise.reject({ result: 'Error when attempting to fetch resource.' });
 	}
 }

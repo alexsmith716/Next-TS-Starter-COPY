@@ -38,7 +38,7 @@ const AboutB: NextPage = () => {
 							<b>This component utilizes the AboutB.</b>
 						</p>
 
-						<div className="custom-pp">AboutB AboutB AboutB AboutB.</div>
+						<div className="custom-pp">AboutB.</div>
 
 						<div className="block-element-p">
 							<ul>
