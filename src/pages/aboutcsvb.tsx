@@ -1,15 +1,13 @@
 import type { NextPage, GetServerSideProps } from 'next';
 import Head from 'next/head';
 import { useSelector } from 'react-redux';
-//import { Store, AnyAction } from 'redux';
 import * as Styles from '../styles/styles-about';
 import { loadAboutCSVB } from '../redux/reducers/aboutCSVBSlice';
 import Loading from '../components/Loading/Loading';
-//@ts-ignore
+import { AboutCSVBPostType } from '../types';
 import { wrapper, AppState } from '../redux/store';
 
-// fix below types
-export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps((store): any => async () => {
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps((store) => async (): Promise<any> => {
 	await store.dispatch(loadAboutCSVB())
 		.catch(async () => {
 			await store.dispatch( {type: 'ABOUTCSVB_FAIL' });
@@ -63,8 +61,7 @@ const AboutCSVB: NextPage<AboutCSVBPageProps> = () => {
 							</div>
 						)}
 						{loaded && aboutCSVBData && !aboutCSVBData.error && (
-							// fix below types
-							<>{postsData.map((post: any, key: any) => (
+							<>{postsData.map((post: AboutCSVBPostType, key: number) => (
 								<p key={key}>
 									{post.body}
 								</p>
