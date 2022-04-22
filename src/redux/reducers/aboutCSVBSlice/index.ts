@@ -31,7 +31,7 @@ const reducer = (state = {}, action: ActionLoadPromiseType | HydrateActionType) 
 				...state,
 				loading: false,
 				loaded: false,
-				aboutCSVBData: action['error'],
+				aboutCSVBData: {error: 'Error when attempting to fetch resource.'},
 			};
 		default:
 			return {
@@ -43,14 +43,14 @@ const reducer = (state = {}, action: ActionLoadPromiseType | HydrateActionType) 
 export default reducer;
 
 export function loadAboutCSVB(): AnyAction {
-  return {
-    type: [ABOUTCSVB_LOAD, ABOUTCSVB_SUCCESS, ABOUTCSVB_FAIL],
-    httpClientPromise: ({httpClient}: {httpClient: AxiosInstance}) => httpClient.get('https://jsonplaceholder.typicode.com/posts?_limit=3')
-      .then((response) => {
-        return {props: {posts: response,}};
-      })
-      .catch(() => {
-        return {props: {posts: null,}};
-      })
-  };
+	return {
+		type: [ABOUTCSVB_LOAD, ABOUTCSVB_SUCCESS, ABOUTCSVB_FAIL],
+		httpClientPromise: ({httpClient}: {httpClient: AxiosInstance}) => httpClient.get('https://jsonplaceholder.typicode.com/posts?_limit=13')
+			.then((response) => {
+				return {props: {posts: response,}};
+			})
+			.catch(() => {
+				return Promise.reject();
+			})
+	};
 };

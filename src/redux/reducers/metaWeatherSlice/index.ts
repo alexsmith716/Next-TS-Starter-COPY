@@ -49,8 +49,8 @@ export function loadMetaWeather(): AnyAction {
 			.then((response) => {
 				return response;
 			})
-			.catch(() => {
-				return Promise.reject();
+			.catch((error) => {
+				return Promise.reject(error);
 			})
 	};
 };

@@ -1,22 +1,33 @@
 import type { NextPage, GetServerSideProps } from 'next';
 import Head from 'next/head';
-//import { useSelector } from 'react-redux';
-import { AnyAction, Store } from 'redux';
+import { useSelector } from 'react-redux';
+//import { Store, AnyAction } from 'redux';
 import * as Styles from '../styles/styles-about';
 import { loadAboutCSVB } from '../redux/reducers/aboutCSVBSlice';
+import Loading from '../components/Loading/Loading';
 //@ts-ignore
 import { wrapper, AppState } from '../redux/store';
 
-export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps((store: Store | AnyAction) => () => {
-	return store.dispatch(loadAboutCSVB());
+// fix below types
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps((store): any => async () => {
+	await store.dispatch(loadAboutCSVB())
+		.catch(async () => {
+			await store.dispatch( {type: 'ABOUTCSVB_FAIL' });
+		});
 });
 
 interface AboutCSVBPageProps {};
 
 const AboutCSVB: NextPage<AboutCSVBPageProps> = () => {
-	//const loading = useSelector((state: AppState) => state.aboutCSVBReducer.loading);
-	//const loaded = useSelector((state: AppState) => state.aboutCSVBReducer.loaded);
-	//const aboutCSVBData = useSelector((state: AppState) => state.aboutCSVBReducer.aboutCSVBData);
+	let postsData;
+
+	const loading = useSelector((state: AppState) => state.aboutCSVBReducer.loading);
+	const loaded = useSelector((state: AppState) => state.aboutCSVBReducer.loaded);
+	const aboutCSVBData = useSelector((state: AppState) => state.aboutCSVBReducer.aboutCSVBData);
+
+	if(aboutCSVBData && !aboutCSVBData.error) {
+		postsData = aboutCSVBData.props.posts;
+	}
 
 	return (
 		<>
@@ -39,14 +50,26 @@ const AboutCSVB: NextPage<AboutCSVBPageProps> = () => {
 					<div className="col-grid">
 						<h2>AboutCSVB</h2>
 						<p>
-							POSTS!!!!: {/* {aboutCSVBData && aboutCSVBData} */}
-						</p>
-						<p>
 							<b>This component utilizes the AboutCSVB.</b>
 						</p>
-						<p>
-							AboutCSVB AboutCSVB AboutCSVB AboutCSVB.
-						</p>
+
+						{/* (>>>>>>>>>>>>>>>>>>>>>> LOADING >>>>>>>>>>>>>>>>>>>>>>>>) */}
+						{loading && <Loading text="Loading" />}
+
+						{/* (>>>>>>>>>>>>>>>>>>>>>> LOADED >>>>>>>>>>>>>>>>>>>>>>>>) */}
+						{!loaded && aboutCSVBData && aboutCSVBData.error && (
+							<div className="bg-warn-red container-padding-radius-10 text-color-white">
+								{aboutCSVBData.error}
+							</div>
+						)}
+						{loaded && aboutCSVBData && !aboutCSVBData.error && (
+							// fix below types
+							<>{postsData.map((post: any, key: any) => (
+								<p key={key}>
+									{post.body}
+								</p>
+							))}</>
+						)}
 					</div>
 				</div>
 			</div>

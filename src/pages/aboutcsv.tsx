@@ -30,7 +30,7 @@ const AboutCSV: NextPage = () => {
 							<b>This component utilizes the AboutCSV.</b>
 						</p>
 						<p>
-							AboutCSV AboutCSV AboutCSV AboutCSV.
+							AboutCSV.
 						</p>
 					</div>
 				</div>
