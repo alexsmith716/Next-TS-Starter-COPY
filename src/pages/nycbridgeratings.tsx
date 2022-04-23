@@ -14,8 +14,10 @@ const NYCBridgeRatings: NextPage = () => {
 	const data = useSelector((state: AppState) => state.nycBridgeRatingsReducer.dateNowData);
 
 	useEffect(() => {
-		dispatch(loadNYCBridgeRatings())
-	}, [dispatch])
+		if (!loaded) {
+			dispatch(loadNYCBridgeRatings());
+		}
+	}, [loaded, dispatch]);
 
 	return (
 		<>
