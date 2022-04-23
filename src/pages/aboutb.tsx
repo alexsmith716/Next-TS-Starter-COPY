@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import Loading from '../components/Loading/Loading';
 import * as Styles from '../styles/styles-about';
 
 import useSwr from 'swr';
@@ -10,8 +11,8 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 const AboutB: NextPage = () => {
 	const { data, error } = useSwr('/api/users', fetcher);
 
-	if (error) return <div>Failed to load users</div>;
-	if (!data) return <div>Loading...</div>;
+	//if (error) return <div>Failed to load users</div>;
+	//if (!data) return <div>Loading...</div>;
 
 	return (
 		<>
@@ -40,17 +41,30 @@ const AboutB: NextPage = () => {
 
 						<div className="custom-pp">AboutB.</div>
 
-						<div className="block-element-p">
-							<ul>
-								{data.map(({id}: {id: any}) => (
-									<li key={`user_${id}`}>
-										<Link href="/user/[id]" as={`/user/${id}`}>
-											<a>{`User ${id}`}</a>
-										</Link>
-									</li>
-								))}
-							</ul>
-						</div>
+						{/* (>>>>>>>>>>>>>>>>>>>>>> LOADING >>>>>>>>>>>>>>>>>>>>>>>>) */}
+						{!data && <Loading text="Loading" />}
+
+						{/* (>>>>>>>>>>>>>>>>>>>>>> ERROR >>>>>>>>>>>>>>>>>>>>>>>>) */}
+						{error && (
+							<div className="bg-warn-red container-padding-radius-10 text-color-white">
+								Failed to load user
+							</div>
+						)}
+
+						{/* (>>>>>>>>>>>>>>>>>>>>>> LOADED >>>>>>>>>>>>>>>>>>>>>>>>) */}
+						{data && (
+							<div className="block-element-p">
+								<ul>
+									{data.map(({id}: {id: any}) => (
+										<li key={`user_${id}`}>
+											<Link href="/user/[id]" as={`/user/${id}`}>
+												<a>{`User ${id}`}</a>
+											</Link>
+										</li>
+									))}
+								</ul>
+							</div>
+						)}
 					</div>
 				</div>
 			</div>
