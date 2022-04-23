@@ -35,8 +35,8 @@ const DateNow = () => {
 							<div className="mt-2">
 								<Button
 									className="btn-primary btn-md"
-									onClick={() => dispatch(loadDateNow(false, 1999))}
-									buttonText="Reload!"
+									onClick={() => dispatch(loadDateNow(true, 1999))}
+									buttonText="Reload"
 								/>
 							</div>
 						</Styles.DateNowContainerStyled>
