@@ -2,6 +2,8 @@
 
 ## Project Description
 
+***** there seems to be something odd about the API Route on the VERY first load in production mode. It's as if the route is completely ignored. I am referring to `await store.dispatch(loadMetaWeather())` line 30 in '_app.tsx'. Like the route has to be 'primed' and then it will work as expected. The issue does not occur in production at all. I can repeat the behavior over and over. *****
+
 ***** this a copy/tester version of 'Next-TS-Starter'. it picks up on the last push to 'Next-TS-Starter' *****
 ***** wanted to push it to GitHub. it is close to completion -needs some additional code & TS typing *****
 ***** basically, all changes here will be merged into 'Next-TS-Starter' *****
