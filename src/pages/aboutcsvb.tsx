@@ -48,7 +48,10 @@ const AboutCSVB: NextPage<AboutCSVBPageProps> = () => {
 					<div className="col-grid">
 						<h2>AboutCSVB</h2>
 						<p>
-							<b>This component utilizes the AboutCSVB.</b>
+							<b>This component utilizes the 'getServerSideProps'.</b>
+						</p>
+						<p>
+							The below data must be fetched at request time. This could be due to the nature of the data or properties of the request (such as 'authorization' headers or geo location).
 						</p>
 
 						{/* (>>>>>>>>>>>>>>>>>>>>>> LOADING >>>>>>>>>>>>>>>>>>>>>>>>) */}
