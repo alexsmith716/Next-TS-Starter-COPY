@@ -9,9 +9,9 @@ import { wrapper, AppState } from '../redux/store';
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps((store) => async (): Promise<any> => {
 	await store.dispatch(loadAboutCSVB())
-		.catch(async () => {
-			await store.dispatch( {type: 'ABOUTCSVB_FAIL' });
-		});
+		.catch((error: Error) => {
+			console.error(error);
+		})
 });
 
 interface AboutCSVBPageProps {};
@@ -48,10 +48,10 @@ const AboutCSVB: NextPage<AboutCSVBPageProps> = () => {
 					<div className="col-grid">
 						<h2>AboutCSVB</h2>
 						<p>
-							<b>This component utilizes the 'getServerSideProps'.</b>
+							<b>This component utilizes &quot;getServerSideProps&quot;.</b>
 						</p>
 						<p>
-							The below data must be fetched at request time. This could be due to the nature of the data or properties of the request (such as 'authorization' headers or geo location).
+							The below data must be fetched at request time. This could be due to the nature of the data or properties of the request (such as &quot;authorization&quot; headers or geo location).
 						</p>
 
 						{/* (>>>>>>>>>>>>>>>>>>>>>> LOADING >>>>>>>>>>>>>>>>>>>>>>>>) */}
