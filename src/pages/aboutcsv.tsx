@@ -1,14 +1,23 @@
 import type { NextPage } from 'next';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-//import useSWR from 'swr';
 import * as Styles from '../styles/styles-about';
 
-const AboutCSV: NextPage = () => {
+interface AboutCSVPageProps {
+	documentTitle: string;
+};
+
+const AboutCSV: NextPage<AboutCSVPageProps> = ({documentTitle}) => {
+	const [title, setTitle] = useState('');
+
+	useEffect(() => {
+		setTitle(documentTitle+':'+String.fromCharCode(160)+'AboutCSV');
+	}, [documentTitle]);
 
 	return (
 		<>
 			<Head>
-				<title>Alex Smith&apos;s App: AboutCSV</title>
+				<title>{ !title ? documentTitle : title }</title>
 			</Head>
 
 			<div className="container">
