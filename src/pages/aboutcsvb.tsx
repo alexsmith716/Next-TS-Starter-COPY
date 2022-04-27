@@ -30,7 +30,7 @@ const AboutCSVB: NextPage<AboutCSVBPageProps> = () => {
 	return (
 		<>
 			<Head>
-				<title>AboutCSVB</title>
+				<title>Alex Smith&apos;s App: AboutCSVB</title>
 			</Head>
 
 			<div className="container">

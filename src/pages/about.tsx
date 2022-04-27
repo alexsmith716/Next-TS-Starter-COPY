@@ -12,7 +12,7 @@ const About: NextPage<AboutPageProps> = () => {
 	return (
 		<>
 			<Head>
-				<title>About</title>
+				<title>Alex Smith&apos;s App: About</title>
 			</Head>
 
 			<div className="container">

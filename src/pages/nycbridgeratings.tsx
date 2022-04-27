@@ -25,7 +25,7 @@ const NYCBridgeRatings: NextPage = () => {
 	return (
 		<>
 			<Head>
-				<title>NYC Bridge Ratings</title>
+				<title>Alex Smith&apos;s App: NYC Bridge Ratings</title>
 			</Head>
 
 			<div className="container">

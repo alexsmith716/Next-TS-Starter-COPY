@@ -6,7 +6,7 @@ const IndexPage: NextPage = () => {
 	return (
 		<>
 			<Head>
-				<title>Home</title>
+				<title>Alex Smith&apos;s App: Home</title>
 			</Head>
 			<Home />
 		</>
