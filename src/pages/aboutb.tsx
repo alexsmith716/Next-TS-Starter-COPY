@@ -17,7 +17,7 @@ const AboutB: NextPage = () => {
 	return (
 		<>
 			<Head>
-				<title>AboutB</title>
+				<title>Alex Smith&apos;s App: AboutB</title>
 			</Head>
 
 			<div className="container">

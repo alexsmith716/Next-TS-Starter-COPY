@@ -8,7 +8,7 @@ const AboutCSV: NextPage = () => {
 	return (
 		<>
 			<Head>
-				<title>AboutCSV</title>
+				<title>Alex Smith&apos;s App: AboutCSV</title>
 			</Head>
 
 			<div className="container">

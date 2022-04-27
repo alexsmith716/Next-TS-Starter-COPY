@@ -12,7 +12,7 @@ const NotFound: FC<NotFoundProps> = () => {
 	return (
 		<>
 			<Head>
-				<title>Status Code 404</title>
+				<title>Alex Smith&apos;s App: Status Code 404</title>
 			</Head>
 
 			<div className="container">
