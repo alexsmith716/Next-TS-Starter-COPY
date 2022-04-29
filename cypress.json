@@ -1,5 +1,8 @@
 {
-	"chromeWebSecurity": false
+	"projectId": "cypress123",
+	"chromeWebSecurity": false,
+	"baseUrl": "http://localhost:3000",
+	"screenshotOnRunFailure": false,
+	"video": false,
+	"modifyObstructiveCode": false
 }
-
-//"baseUrl": "http://localhost:3000",
