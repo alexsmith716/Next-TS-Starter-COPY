@@ -1,22 +1,49 @@
-/// <reference types="cypress" />
-// ***********************************************************
-// This example plugins/index.js can be used to load plugins
-//
-// You can change the location of this file or turn off loading
-// the plugins file with the 'pluginsFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/plugins-guide
-// ***********************************************************
-
-// This function is called when a project is opened or re-opened (e.g. due to
-// the project's config changing)
-
-/**
- * @type {Cypress.PluginConfig}
- */
-// eslint-disable-next-line no-unused-vars
 module.exports = (on, config) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
+	// `on` is used to hook into various events Cypress emits
+	// `config` is the resolved Cypress config
 }
+
+//  const nock = require('nock')
+//  const http = require('http')
+//  const next = require('next')
+//  
+//  const dev = process.env.NODE_ENV !== 'production'
+//  const hostname = 'localhost'
+//  const port = 3000
+//  
+//  module.exports = async (on, config) => {
+//  	const app = next({ dev, hostname, port })
+//  	const handleNextRequests = app.getRequestHandler()
+//  	await app.prepare()
+//  
+//  	const customServer = new http.Server(async (req, res) => {
+//  		return handleNextRequests(req, res)
+//  	})
+//  
+//  	await new Promise((resolve, reject) => {
+//  		customServer.listen(3000, (err) => {
+//  			if (err) {
+//  				return reject(err)
+//  			}
+//  			console.log('> Ready on http://localhost:3000')
+//  			resolve()
+//  		})
+//  	})
+//  
+//  	on('task', {
+//  		clearNock() {
+//  			nock.restore()
+//  			nock.cleanAll()
+//  			return null
+//  		},
+//  
+//  		async nock({ hostname, method, path, statusCode, body }) {
+//  			nock.activate();
+//  
+//  			nock(hostname)[method](path).reply(statusCode, body.userPosts)
+//  
+//  			return null;
+//  		},
+//  	});
+//  	return config;
+//  }

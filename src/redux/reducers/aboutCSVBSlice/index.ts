@@ -46,9 +46,13 @@ export function loadAboutCSVB(): AnyAction {
 	const limit: number = Math.floor(Math.random() * 6) + 1;
 	return {
 		type: [ABOUTCSVB_LOAD, ABOUTCSVB_SUCCESS, ABOUTCSVB_FAIL],
-		httpClientPromise: ({httpClient}: {httpClient: AxiosInstance}) => httpClient.get(`https://jsonplaceholder.typicode.com/posts?_limit=${limit}`)
+		httpClientPromise: ({httpClient}: {httpClient: AxiosInstance}) => httpClient.get(`https://jsonplaceholder.typicode.com/posts`, {params: {_limit:1}})
 			.then((response) => {
-				return {props: {posts: response,}};
+				return {
+					props: {
+						posts: response
+					}
+				}
 			})
 			.catch(() => {
 				return Promise.reject({ error: 'Error when attempting to fetch resource.' });
