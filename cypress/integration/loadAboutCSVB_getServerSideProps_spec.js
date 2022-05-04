@@ -32,7 +32,7 @@ it('confirms getServerSideProps returns mock', () => {
 
 	cy.visit('http://localhost:3000/aboutcsvb');
 
-  // nock.scope:jsonplaceholder.typicode.com query matching succeeded +0ms
-  // nock.scope:jsonplaceholder.typicode.com matching https://jsonplaceholder.typicode.com:443/posts to GET https://jsonplaceholder.typicode.com:443/posts: true +0ms
+	// nock.scope:jsonplaceholder.typicode.com query matching succeeded +0ms
+	// nock.scope:jsonplaceholder.typicode.com matching https://jsonplaceholder.typicode.com:443/posts to GET https://jsonplaceholder.typicode.com:443/posts: true +0ms
 	cy.contains('[data-cy=posts]', containsPost);
 })
