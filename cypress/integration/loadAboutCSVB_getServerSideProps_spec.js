@@ -25,9 +25,7 @@ it('confirms getServerSideProps returns mock', () => {
 		method: 'get',
 		path: '/posts?_limit=1',
 		statusCode: 200,
-		body: {
-			userPosts: posts
-		}
+		body: posts
 	})
 
 	cy.visit('http://localhost:3000/aboutcsvb');
