@@ -40,17 +40,15 @@ const MetaWeather = () => {
 								The Exclusive <i>MetaWeather.com</i>&nbsp;forecast{loaded && metaWeatherData && <>&nbsp;for:</>}
 							</div>
 
-							<div>
-								{!loaded && metaWeatherData && metaWeatherData.error && <Styles.DataMessage>{metaWeatherData.error}</Styles.DataMessage>}
-							</div>
+							{!loaded && metaWeatherData && metaWeatherData.error && <div><Styles.DataMessage>{metaWeatherData.error}</Styles.DataMessage></div>}
 
-							<div>
-								{loaded && metaWeatherData && !metaWeatherData.error && <Styles.DataMessage>{metaWeatherData.title}&nbsp;{metaWeatherData.location_type}</Styles.DataMessage>}
-							</div>
+							{loaded && metaWeatherData && !metaWeatherData.error && (
+								<div data-cy="metaWeather"><Styles.DataMessage>{metaWeatherData.title}&nbsp;{metaWeatherData.location_type}</Styles.DataMessage></div>
+								)}
 
-							<div>
-								{loaded && metaWeatherData && !metaWeatherData.error && <>{metaWeatherDataST}&nbsp;<Styles.DataMessage>and</Styles.DataMessage>&nbsp;{metaWeatherDataTP}&nbsp;celsius</>}
-							</div>
+							{loaded && metaWeatherData && !metaWeatherData.error && (
+								<div data-cy="metaWeather">{metaWeatherDataST}&nbsp;<Styles.DataMessage>and</Styles.DataMessage>&nbsp;{metaWeatherDataTP}&nbsp;celsius</div>
+								)}
 
 							<div className="mt-2">
 								<Button
