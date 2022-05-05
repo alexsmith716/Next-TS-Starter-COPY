@@ -4,11 +4,10 @@ beforeEach(() => {
 
 it('app fetches jsonplaceholder.typicode.com/posts?_limit=1', () => {
 	cy.visit('http://localhost:3000/aboutcsvb')
-	cy.get('[data-cy=posts]').should('not.be.empty')
-})
+	cy.get('[data-cy=posts]').children().should('not.be.empty');
+});
 
 it('confirms getServerSideProps returns mock', () => {
-
 	const posts = [{
 		body: 'quia et suscipit\n' +
 			'suscipit recusandae consequuntur expedita et cum\n' +
