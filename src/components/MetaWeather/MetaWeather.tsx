@@ -43,11 +43,11 @@ const MetaWeather = () => {
 							{!loaded && metaWeatherData && metaWeatherData.error && <div><Styles.DataMessage>{metaWeatherData.error}</Styles.DataMessage></div>}
 
 							{loaded && metaWeatherData && !metaWeatherData.error && (
-								<div data-cy="metaWeather"><Styles.DataMessage>{metaWeatherData.title}&nbsp;{metaWeatherData.location_type}</Styles.DataMessage></div>
+								<><Styles.DataMessage data-cy="metaWeather">{metaWeatherData.title}&nbsp;{metaWeatherData.location_type}</Styles.DataMessage></>
 								)}
 
 							{loaded && metaWeatherData && !metaWeatherData.error && (
-								<div data-cy="metaWeather">{metaWeatherDataST}&nbsp;<Styles.DataMessage>and</Styles.DataMessage>&nbsp;{metaWeatherDataTP}&nbsp;celsius</div>
+								<div>{metaWeatherDataST}&nbsp;<Styles.DataMessage>and</Styles.DataMessage>&nbsp;{metaWeatherDataTP}&nbsp;celsius</div>
 								)}
 
 							<div className="mt-2">
