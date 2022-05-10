@@ -29,6 +29,7 @@ This is my first try with Next.js. The goal of this repo is to become familiar w
 - Environment Variables
 - Cypress
 - Nock
+- AWS SDK v3 Client mock
 
 ## To-do list:
 * More Testing
