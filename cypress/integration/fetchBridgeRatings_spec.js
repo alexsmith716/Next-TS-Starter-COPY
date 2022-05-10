@@ -8,15 +8,18 @@ const s3ClientMock = mockClient(S3Client);
 context("Browser AWS mock GetObjectCommand for fetchBridgeRatings ReadableStream", () => {
 	let csvTestFileFixture;
 
-	beforeEach(() => {
-		s3ClientMock.reset();
+	before(() => {
 		cy.fixture('csvTestFile.csv').then((f) => {
 			csvTestFileFixture = f;
 		})
 	})
 
+	beforeEach(() => {
+		s3ClientMock.reset();
+	})
+
 	it('cy.fixture() - load csvTestFile.csv as fixture', () => {
-		expect(csvTestFileFixture, 'the same data').to.deep.equal(csvTestFileFixture);
+		expect(csvTestFileFixture).to.include('BIN,BORO,FEATURE CARRIED');
 	});
 
 	it('s3ClientMock - mock S3 GetObjectCommand and verify returned payload result', async () => {
