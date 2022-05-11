@@ -1,4 +1,3 @@
-import fs from 'fs';
 import { mockClient } from 'aws-sdk-client-mock';
 import { S3Client, GetObjectCommand } from '@aws-sdk/client-s3';
 import { fetchBridgeRatings } from '../../src/utils/fetchBridgeRatings';

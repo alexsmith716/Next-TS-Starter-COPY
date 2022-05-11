@@ -149,10 +149,10 @@
     "@aws-sdk/util-utf8-node" "3.55.0"
     tslib "^2.3.1"
 
-"@aws-sdk/client-s3@^3.87.0":
-  version "3.87.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/client-s3/-/client-s3-3.87.0.tgz#afb0170ca1eff40cc7217bf7967329706e41a8b7"
-  integrity sha512-oTEHZdJ9bfQfEM21Q3GMK3DHa+VTKvhqrpUGqpRtPZTt8bW16209RQkC3aDKOswo3008djRE8cZMu9KRcNjKvg==
+"@aws-sdk/client-s3@^3.88.0":
+  version "3.88.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/client-s3/-/client-s3-3.88.0.tgz#cfb9d2c2df3b545a43cc9d83d7044ce1f8c5691b"
+  integrity sha512-OZZZ2k1YMpnWYi+9Jb9lIhc2Gr6Z4vl35MKlWAsSC9ed/3vzPhkyKBAFuIi7wIWsRof0QtVLlpQKKBPyylK95g==
   dependencies:
     "@aws-crypto/sha1-browser" "2.0.0"
     "@aws-crypto/sha256-browser" "2.0.0"
@@ -186,7 +186,7 @@
     "@aws-sdk/node-config-provider" "3.80.0"
     "@aws-sdk/node-http-handler" "3.82.0"
     "@aws-sdk/protocol-http" "3.78.0"
-    "@aws-sdk/signature-v4-multi-region" "3.78.0"
+    "@aws-sdk/signature-v4-multi-region" "3.88.0"
     "@aws-sdk/smithy-client" "3.85.0"
     "@aws-sdk/types" "3.78.0"
     "@aws-sdk/url-parser" "3.78.0"
@@ -715,10 +715,10 @@
   dependencies:
     tslib "^2.3.1"
 
-"@aws-sdk/signature-v4-multi-region@3.78.0":
-  version "3.78.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/signature-v4-multi-region/-/signature-v4-multi-region-3.78.0.tgz#35b7ac8ed449c62fc7cae295f4b2f31246d0d33c"
-  integrity sha512-5C+3m4dikUsSLTxW++aBCHP0DT1niiEfXR4UdnjJzcjTtmi/jbL/i8UPG5sCpib9Mu6TMW633tN0h5woVPIIcg==
+"@aws-sdk/signature-v4-multi-region@3.88.0":
+  version "3.88.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/signature-v4-multi-region/-/signature-v4-multi-region-3.88.0.tgz#7102caacf3d4722dd1fa4dedbe05bef21064edc5"
+  integrity sha512-RBbyQRpohlIQiuZc5qAvwbXO0Bob9XhHFS/kuLh+DcyeaBp+m+Bt291FX1Ksz2A0Q3ETNM34LFt7kTOBtMvjIQ==
   dependencies:
     "@aws-sdk/protocol-http" "3.78.0"
     "@aws-sdk/signature-v4" "3.78.0"
@@ -1307,10 +1307,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.18.16.tgz#878f670ba3f00482bf859b6550b6010610fc54b5"
   integrity sha512-X3bUMdK/VmvrWdoTkz+VCn6nwKwrKCFTHtqwBIaQJNx4RUIBBUFXM00bqPz/DsDd+Icjmzm6/tyYZzeGVqb6/Q==
 
-"@types/node@^17.0.31":
-  version "17.0.31"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.31.tgz#a5bb84ecfa27eec5e1c802c6bbf8139bdb163a5d"
-  integrity sha512-AR0x5HbXGqkEx9CadRH3EBYx/VkiUgZIhP4wvPn/+5KIsgpNoyFaRlVe0Zlx9gRtg8fA06a9tskE2MSN7TcG4Q==
+"@types/node@^17.0.32":
+  version "17.0.32"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.32.tgz#51d59d7a90ef2d0ae961791e0900cad2393a0149"
+  integrity sha512-eAIcfAvhf/BkHcf4pkLJ7ECpBAhh9kcxRBpip9cTiO+hf+aJrsxYxBeS6OXvOd9WqNAJmavXVpZvY1rBjNsXmw==
 
 "@types/papaparse@^5.3.2":
   version "5.3.2"
@@ -4068,11 +4068,6 @@ yallist@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
   integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
-
-yarn@^1.22.18:
-  version "1.22.18"
-  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.22.18.tgz#05b822ade8c672987bab8858635145da0850f78a"
-  integrity sha512-oFffv6Jp2+BTUBItzx1Z0dpikTX+raRdqupfqzeMKnoh7WD6RuPAxcqDkMUy9vafJkrB0YaV708znpuMhEBKGQ==
 
 yauzl@^2.10.0:
   version "2.10.0"
