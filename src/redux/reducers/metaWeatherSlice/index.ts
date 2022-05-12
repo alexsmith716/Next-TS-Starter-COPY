@@ -58,7 +58,7 @@ export function loadMetaWeatherServer(): AnyAction {
 export function loadMetaWeather(): AnyAction {
 	return {
 		type: [METAWEATHER_LOAD, METAWEATHER_SUCCESS, METAWEATHER_FAIL],
-		httpClientPromise: ({httpClient}: {httpClient: AxiosInstance}) => httpClient.get('http://localhost:3000/api/metaweather')
+		httpClientPromise: ({httpClient}: {httpClient: AxiosInstance}) => httpClient.get('/api/metaweather')
 			.then((response) => {
 				return response;
 			})
