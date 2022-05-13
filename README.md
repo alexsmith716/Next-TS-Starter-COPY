@@ -4,7 +4,7 @@
 
 This is my first try with Next.js. The goal of this repo is to become familiar working with Next.js. I want to use Next.js as a platform to build out TypeScript, UI, API, AWS, CI/CD, Testing and basically all other Server/Client skills & technologies. Main focus right now is to get a stable project that I can improve my Testing, TS and React knowledge.
 
-[The app is deployed here.](https://next-ts-starter-copy-to-vercel-alexsmith716-outlookcom.vercel.app)
+[The app is deployed here.](https://portfolio-alexsmith716.vercel.app)
 
 ## Technologies Used:
 * Next.JS 12.1.6
