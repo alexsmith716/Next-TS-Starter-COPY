@@ -3,7 +3,7 @@ import { wrapper } from '../redux/store';
 import { ThemeContext } from '../styled/ThemeContext';
 import { Layout } from '../components/Layout';
 import { actionSetUserAgent } from '../redux/reducers/userAgentSlice';
-import { loadMetaWeatherServer } from '../redux/reducers/metaWeatherSlice';
+import { loadMetaWeather } from '../redux/reducers/metaWeatherSlice';
 import { getUserAgent, isBot } from '../utils/userAgent';
 import '../styled/fonts.css';
 
@@ -27,7 +27,7 @@ App.getInitialProps = wrapper.getInitialAppProps((store) => async ({ Component, 
 	}
 
 	if (isServer) {
-		await store.dispatch(loadMetaWeatherServer())
+		await store.dispatch(loadMetaWeather())
 			.catch((error: Error) => {
 				console.error(error);
 			})
