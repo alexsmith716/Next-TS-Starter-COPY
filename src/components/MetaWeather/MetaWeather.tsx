@@ -40,7 +40,7 @@ const MetaWeather = () => {
 								The Exclusive <i>MetaWeather.com</i>&nbsp;forecast{loaded && metaWeatherData && <>&nbsp;for:</>}
 							</div>
 
-							{!loaded && metaWeatherData && metaWeatherData.error && <div><Styles.DataMessage>{metaWeatherData.error}</Styles.DataMessage></div>}
+							{!loaded && metaWeatherData && metaWeatherData.error && <Styles.DataMessage>{metaWeatherData.error}</Styles.DataMessage>}
 
 							{loaded && metaWeatherData && !metaWeatherData.error && (
 								<><Styles.DataMessage data-cy="metaWeather">{metaWeatherData.title}&nbsp;{metaWeatherData.location_type}</Styles.DataMessage></>

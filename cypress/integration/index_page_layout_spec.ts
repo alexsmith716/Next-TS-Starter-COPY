@@ -15,6 +15,10 @@ context('Index page - Any page Basic Window test', () => {
 		cy.title().should('include', 'Alex Smith\'s App');
 	});
 
+	it('should have __NEXT_DATA__ script', () => {
+		cy.get('script#__NEXT_DATA__').should('have.length', 1);
+	})
+
 	it('cy.get() - verify NavBar component', () => {
 		cy.get('body > div').children()
 			.should(($div) => {
@@ -66,8 +70,8 @@ context('Index page - Any page Basic Window test', () => {
 	it('cy.get() - verify Footer component', () => {
 		cy.get('body > div').children()
 			.should(($div) => {
-			const className = $div[6].className;
-			expect(className).to.match(/styles-footer__FooterStyled/);
+				const className = $div[6].className;
+				expect(className).to.match(/styles-footer__FooterStyled/);
 			})
 	});
 });

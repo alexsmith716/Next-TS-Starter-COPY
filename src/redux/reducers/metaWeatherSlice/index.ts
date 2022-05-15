@@ -42,23 +42,13 @@ const reducer = (state = {}, action: ActionLoadPromiseType | HydrateActionType) 
 
 export default reducer;
 
-export function loadMetaWeatherServer(): AnyAction {
-	return {
-		type: [METAWEATHER_LOAD, METAWEATHER_SUCCESS, METAWEATHER_FAIL],
-		httpClientPromise: ({httpClient}: {httpClient: AxiosInstance}) => httpClient.get('https://www.metaweather.com/api/location/2459115')
-			.then((response) => {
-				return response;
-			})
-			.catch(() => {
-				return Promise.reject({ error: 'Error when attempting to fetch resource.' });
-			})
-	};
-};
-
 export function loadMetaWeather(): AnyAction {
+	const isServer = typeof window === 'undefined';
+	let req;
+	isServer ? req = 'https://www.metaweather.com/api/location/2459115' : req = '/api/metaweather';
 	return {
 		type: [METAWEATHER_LOAD, METAWEATHER_SUCCESS, METAWEATHER_FAIL],
-		httpClientPromise: ({httpClient}: {httpClient: AxiosInstance}) => httpClient.get('/api/metaweather')
+		httpClientPromise: ({httpClient}: {httpClient: AxiosInstance}) => httpClient.get(req)
 			.then((response) => {
 				return response;
 			})

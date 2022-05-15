@@ -67,9 +67,9 @@ const AboutCSVB: NextPage<AboutCSVBPageProps> = ({documentTitle}) => {
 
 						{/* (>>>>>>>>>>>>>>>>>>>>>> LOADED >>>>>>>>>>>>>>>>>>>>>>>>) */}
 						{!loaded && aboutCSVBData && aboutCSVBData.error && (
-							<div className="bg-warn-red container-padding-radius-10 text-color-white">
+							<p className="bg-warn-red container-padding-radius-10 text-color-white">
 								{aboutCSVBData.error}
-							</div>
+							</p>
 						)}
 						{loaded && aboutCSVBData && !aboutCSVBData.error && (
 							<>{postsData.map((post: AboutCSVBPostType, key: number) => (
