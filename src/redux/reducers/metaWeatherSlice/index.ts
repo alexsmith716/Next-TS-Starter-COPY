@@ -44,7 +44,7 @@ export default reducer;
 
 export function loadMetaWeather(): AnyAction {
 	const isServer = typeof window === 'undefined';
-	let req;
+	let req: string;
 	isServer ? req = 'https://www.metaweather.com/api/location/2459115' : req = '/api/metaweather';
 	return {
 		type: [METAWEATHER_LOAD, METAWEATHER_SUCCESS, METAWEATHER_FAIL],
