@@ -1,4 +1,5 @@
 {
+	"pluginsFile": false,
 	"screenshotOnRunFailure": false,
 	"video": false,
 	"modifyObstructiveCode": false

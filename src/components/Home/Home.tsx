@@ -42,7 +42,7 @@ export default function Home() {
 					</Styles.MastheadBlurbElipsis>
 
 					<Link href={`/${NavLinks[int].url}`} passHref>
-						<Styles.MastheadLink className="btn btn-lg btn-success">{`${NavLinks[int].title}`}&nbsp;&gt;&gt;</Styles.MastheadLink>
+						<Styles.MastheadLink className="btn btn-lg btn-success" data-testid="mastheadLink">{`${NavLinks[int].title}`}&nbsp;&gt;&gt;</Styles.MastheadLink>
 					</Link>
 
 				</div>
