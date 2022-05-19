@@ -8,15 +8,17 @@ jest.mock('next/router', () => ({
 		return ({
 			route: '/',
 			pathname: '/',
-			query: '',
-			asPath: '',
-			push: jest.fn(),
-			events: {
-				on: jest.fn(),
-				off: jest.fn()
-			},
-			beforePopState: jest.fn(() => null),
-			prefetch: jest.fn(() => null)
+			query: {},
+			asPath: '/',
+			isFallback: false,
+			basePath: '',
+			locale: undefined,
+			locales: undefined,
+			defaultLocale: undefined,
+			isReady: true,
+			domainLocales: undefined,
+			isPreview: false,
+			isLocaleDomain: false
 		});
 	},
 }));
@@ -33,3 +35,11 @@ describe('Navbar Component', () => {
 
 	});
 });
+
+// https://github.com/vercel/next.js/blob/canary/docs/api-reference/next/router.md#router-object
+// test layout for media query 'max-width: 992px'
+// test activeRoute highlighting
+// test activeRoute home link visibility
+// test 'NavBarNavLink hover background-color' for media query 'max-width: 992px'
+// test Toggler onClick svg style
+// add/configure Jest Styled Components
