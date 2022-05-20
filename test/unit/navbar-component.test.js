@@ -24,7 +24,7 @@ jest.mock('next/router', () => ({
 }));
 
 describe('Navbar Component', () => {
-	it('should render all NavBarNav items', () => {
+	it('should render all NavBarNav container Links', () => {
 		render(<NavBar />);
 
 		expect(screen.getByText('DarkTheme')).toBeInTheDocument();
@@ -32,14 +32,5 @@ describe('Navbar Component', () => {
 		for (const link of NavLinks) {
 			expect(screen.getByText(`${link.title}`)).toBeInTheDocument();
 		}
-
 	});
 });
-
-// https://github.com/vercel/next.js/blob/canary/docs/api-reference/next/router.md#router-object
-// test layout for media query 'max-width: 992px'
-// test activeRoute highlighting
-// test activeRoute home link visibility
-// test 'NavBarNavLink hover background-color' for media query 'max-width: 992px'
-// test Toggler onClick svg style
-// add/configure Jest Styled Components
