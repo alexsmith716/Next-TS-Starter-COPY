@@ -24,12 +24,12 @@ const NavBar = () => {
 			<div className="container">
 				<Styles.Expand>
 					<Link href="/" passHref>
-						<Styles.NavBarBrandLink onClick={() => setClicked(false)}>
+						<Styles.NavBarBrandLink data-testid="navbar-brand-link" onClick={() => setClicked(false)}>
 							{activeRoute !== '/' ? 'Home' : null}
 						</Styles.NavBarBrandLink>
 					</Link>
 
-					<Styles.NavBarNav clicked={clicked} className={clicked ? 'clicked' : ''}>
+					<Styles.NavBarNav data-testid="navbar-nav" clicked={clicked} className={clicked ? 'clicked' : ''}>
 						<li>
 							<Styles.NavBarNavA
 								onClick={() => {
@@ -56,7 +56,7 @@ const NavBar = () => {
 						})}
 					</Styles.NavBarNav>
 
-					<Styles.Toggler onClick={() => setClicked(!clicked)}>
+					<Styles.Toggler onClick={() => setClicked(!clicked)}  data-testid="toggler">
 						{clicked && <Styles.StyledSvgTimes fill="#ffffff" />}
 
 						{!clicked && <Styles.StyledSvgBars fill="#ffffff" />}

@@ -17,7 +17,7 @@ context('Index page - Any page Basic Window test', () => {
 
 	it('should have __NEXT_DATA__ script', () => {
 		cy.get('script#__NEXT_DATA__').should('have.length', 1);
-	})
+	});
 
 	it('cy.get() - verify NavBar component', () => {
 		cy.get('body > div').children()
