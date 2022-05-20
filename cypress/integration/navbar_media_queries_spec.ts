@@ -1,6 +1,6 @@
 describe('Navbar Desktop and Mobile Responsive Media Queries', () => {
 
-	context('Verify Index Page exists', () => {
+	context('Verify Functionality of Index Page', () => {
 		beforeEach(() => {
 			cy.visit('http://localhost:3000/');
 		});
@@ -67,8 +67,7 @@ describe('Navbar Desktop and Mobile Responsive Media Queries', () => {
 		});
 
 		it('cy.click() - NavBar click Toggler StyledSvgBars and NavBarNav is visible', () => {
-			cy.get('[data-testid="toggler"]')
-				.click()
+			cy.get('[data-testid="toggler"]').click()
 			cy.get('[data-testid=navbar-nav]').should('be.visible');
 		})
 	})

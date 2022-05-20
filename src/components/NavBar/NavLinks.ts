@@ -21,7 +21,7 @@ export const NavLinks = [
 	},
 	{
 		title: 'BridgeRatings',
-		url: 'nycbridgeratings',
+		url: 'bridgeratings',
 		linkType: 'navLink',
 	},
 ];
